@@ -129,6 +129,7 @@ public class Route {
 				break;
 			}
 		}
+		//TODO: replace this to reconing servlet
 		if (busByName != null) {
 			busByName.takeSeat();
 		}
