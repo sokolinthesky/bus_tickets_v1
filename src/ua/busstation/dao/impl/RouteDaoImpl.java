@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 import ua.busstation.core.route.Route;
 import ua.busstation.core.route.RouteDao;
@@ -15,6 +16,7 @@ public class RouteDaoImpl implements RouteDao {
 	private Connection connection = null;
 
 	private static final String SELLECT_ALL_ROUTES = "SELECT * FROM routes";
+	private static final String ROUTE_BY_NAME = "SELECT * FROM routes where name = (?)";
 
 	@Override
 	public List<Route> getAllRouts() {
@@ -42,8 +44,25 @@ public class RouteDaoImpl implements RouteDao {
 
 	@Override
 	public Route findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		connection = (Connection) JdbcConectionPoolConfig.getConnection();
+		BusDaoImpl busDaoImpl = new BusDaoImpl();
+		try (PreparedStatement statement = (PreparedStatement) connection.prepareStatement(ROUTE_BY_NAME)) {
+			statement.setString(1, name);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				while (resultSet.next()) {
+					return new Route(String.valueOf(resultSet.getInt("id")), resultSet.getString("name"),
+							resultSet.getTime("departure_time"), resultSet.getTime("destination_time"),
+							resultSet.getDouble("price"),
+							busDaoImpl.getBusesByRouteId(String.valueOf(resultSet.getInt("id"))));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		throw new IllegalStateException(String.format("User %s does not exists", name));
 	}
 
 	private void close() {

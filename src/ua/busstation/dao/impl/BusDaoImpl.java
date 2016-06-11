@@ -34,7 +34,6 @@ public class BusDaoImpl implements BusDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			//TODO: test finaly block with nex throw Exception
 			close();
 		}
 
