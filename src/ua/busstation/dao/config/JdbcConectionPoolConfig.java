@@ -30,5 +30,5 @@ public class JdbcConectionPoolConfig {
 			return null;
 		}
 	}
-	
+
 }

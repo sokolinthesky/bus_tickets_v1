@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import ua.busstation.core.route.Route;
 import ua.busstation.core.route.RouteDao;
 import ua.busstation.dao.config.JdbcConectionPoolConfig;
@@ -22,8 +22,8 @@ public class RouteDaoImpl implements RouteDao {
 	public List<Route> getAllRouts() {
 		List<Route> routes = new ArrayList<>();
 		BusDaoImpl busDaoImpl = new BusDaoImpl();
-		connection = (Connection) JdbcConectionPoolConfig.getConnection();
-		try (Statement statement = (Statement) connection.createStatement();
+		connection = JdbcConectionPoolConfig.getConnection();
+		try (Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery(SELLECT_ALL_ROUTES)) {
 			while (resultSet.next()) {
 
@@ -44,9 +44,9 @@ public class RouteDaoImpl implements RouteDao {
 
 	@Override
 	public Route findByName(String name) {
-		connection = (Connection) JdbcConectionPoolConfig.getConnection();
+		connection =  JdbcConectionPoolConfig.getConnection();
 		BusDaoImpl busDaoImpl = new BusDaoImpl();
-		try (PreparedStatement statement = (PreparedStatement) connection.prepareStatement(ROUTE_BY_NAME)) {
+		try (PreparedStatement statement = connection.prepareStatement(ROUTE_BY_NAME)) {
 			statement.setString(1, name);
 			try (ResultSet resultSet = statement.executeQuery()) {
 				while (resultSet.next()) {
