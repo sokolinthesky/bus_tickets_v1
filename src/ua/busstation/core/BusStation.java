@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class BusStation {
 
-    private Route selectedRoute;
-    private Date selectedDate;
+    private static Route selectedRoute;
+    private static Date selectedDate;
     private static Map<Route, Date> routes = new HashMap<>();
 
     public boolean checkTime(Date selectedDate) {

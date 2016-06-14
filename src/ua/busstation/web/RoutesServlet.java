@@ -65,8 +65,6 @@ public class RoutesServlet extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
-		//doGet(request, response);
 	}
 
 }

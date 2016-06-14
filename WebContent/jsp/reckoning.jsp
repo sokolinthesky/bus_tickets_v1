@@ -13,18 +13,16 @@
     <h2>Online Bus Station</h2>
 </div>
 <div align="center">
-    <form action="${pageContext.request.contextPath}/reckoning" method="post">
-        <div class="lc-block">
-            Selected date:<h3> ${date}</h3><br>
-            Select bus:<br>
-            <c:forEach var="bus" items="${buses}">
-                <input type="radio" name="busNumber" value="${bus.trainNumber}"><strong>${bus.trainNumber}
-                [seats: ${bus.seats}/40]</strong><br>
-            </c:forEach>
-            <input type="submit" value="Submit" class="button green small">
-        </div>
-    </form>
-</div>
-
+    <div class="lc-block">
+        <h1>Ticket:</h1>
+        <strong>Bus number:</strong> ${reckoning.bus.trainNumber}<br>
+        <strong>Route:</strong> ${reckoning.route.name}<br>
+        <strong>Date:</strong> ${reckoning.bus.date}<br>
+        <strong>Departure time:</strong> ${reckoning.route.departureTime}<br>
+        <strong>Destination time:</strong> ${reckoning.route.destinationTime}<br>
+        <strong>Seat:</strong> ${reckoning.bus.seats + 1}<br>
+        <strong>Price:</strong> ${reckoning.route.price}
+    </div>
+   </div>
 </body>
 </html>
