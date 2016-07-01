@@ -13,7 +13,8 @@
     <h2>Online Bus Station</h2>
 </div>
 <div align="center">
-    <form action="${pageContext.request.contextPath}/reckoning" method="post">
+    <form action="controller" method="post">
+    <input type="hidden" name="command" value="reckoning" />
         <div class="lc-block">
             Selected date:<h3> ${date}</h3><br>
             Select bus:<br>

@@ -38,7 +38,6 @@ public class RouteDaoImpl implements RouteDao {
 		} finally {
 			close();
 		}
-
 		return routes;
 	}
 
