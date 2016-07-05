@@ -10,7 +10,7 @@ public class Path {
 	public static final String PAGE_RECKONING = "jsp/reckoning.jsp";
 
 	// commands
-	public static final String COMMAND__LIST_ORDERS = "/controller?command=listOrders";
-	public static final String COMMAND__LIST_MENU = "/controller?command=listMenu";
+	public static final String COMMAND_LIST_USERS = "/controller?command=listUsers";
+	public static final String COMMAND_LIST_ROUTES = "/controller?command=listRoutes";
 
 }
