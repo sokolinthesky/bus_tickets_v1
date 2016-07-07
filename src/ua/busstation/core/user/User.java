@@ -5,20 +5,32 @@ import java.io.Serializable;
 /**
  * User entity.
  * 
- * @author D.Kolesnikov
+ * @author O.Soklakov
  * 
  */
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -6889036256149495388L;
-	
+
 	private Long id;
 	private String login;
-	private String password;	
-	private String firstName;	
+	private String password;
+	private String firstName;
 	private String lastName;
 	private int roleId;
-	
+
+	public User() {
+	}
+
+	public User(Long id, String login, String password, String firstName, String lastName, int routeId) {
+		this.id = id;
+		this.login = login;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.roleId = routeId;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -58,7 +70,7 @@ public class User implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public int getRoleId() {
 		return roleId;
 	}
@@ -69,10 +81,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [login=" + login  
-				+ ", firstName=" + firstName 
-				+ ", lastName=" + lastName
-				+ ", roleId=" + roleId + "]";
+		return "User [login=" + login + ", firstName=" + firstName + ", lastName=" + lastName + ", roleId=" + roleId
+				+ "]";
 	}
-	
+
 }

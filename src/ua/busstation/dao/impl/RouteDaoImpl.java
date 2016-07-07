@@ -15,7 +15,7 @@ import ua.busstation.dao.config.JdbcConectionPoolConfig;
 public class RouteDaoImpl implements RouteDao {
 	private Connection connection = null;
 
-	private static final String SELLECT_ALL_ROUTES = "SELECT * FROM routes";
+	private static final String SELECT_ALL_ROUTES = "SELECT * FROM routes";
 	private static final String ROUTE_BY_NAME = "SELECT * FROM routes where name = (?)";
 
 	@Override
@@ -24,7 +24,7 @@ public class RouteDaoImpl implements RouteDao {
 		BusDaoImpl busDaoImpl = new BusDaoImpl();
 		connection = JdbcConectionPoolConfig.getConnection();
 		try (Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery(SELLECT_ALL_ROUTES)) {
+				ResultSet resultSet = statement.executeQuery(SELECT_ALL_ROUTES)) {
 			while (resultSet.next()) {
 
 				routes.add(new Route(String.valueOf(resultSet.getInt("id")), resultSet.getString("name"),
