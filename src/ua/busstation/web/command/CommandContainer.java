@@ -19,6 +19,9 @@ private static final Logger log = Logger.getLogger(CommandContainer.class);
 	private static Map<String, Command> commands = new TreeMap<String, Command>();
 	
 	static {
+		
+
+		commands.put("login", new LoginCommand());
 		// common commands
 		commands.put("routes", new ListRoutesCommand());
 		//commands.put("logout", new LogoutCommand());

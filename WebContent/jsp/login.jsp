@@ -1,15 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="<c:url value="css/app.css" />" rel="stylesheet"
+	type="text/css">
+<title>busstation</title>
 </head>
-<body>
-	<form action="controller" method="post">
-	<input type="hidden" name="command" value="routes"/>
-		<input type="submit" value="Login" />
-	</form>
+<body class="security-app">
+	<div class="details">
+		<h2>Online Bus Station</h2>
+	</div>
+	<div align="center">
+		<form action="controller" method="post">
+			<input type="hidden" name="command" value="login" />
+			<div class="lc-block">
+				<div>
+					<input type="text" class="style-4" name="login"
+						placeholder="User Name" />
+				</div>
+				<div>
+					<input type="password" class="style-4" name="password"
+						placeholder="Password" />
+				</div>
+				<div>
+					<input type="submit" value="submit" class="button red small" />
+				</div>
+				<c:if test="${param.error ne null}">
+					<div class="alert-danger">Invalid username and password.</div>
+				</c:if>
+				<c:if test="${param.logout ne null}">
+					<div class="alert-normal">You have been logged out.</div>
+				</c:if>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

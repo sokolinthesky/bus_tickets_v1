@@ -2,7 +2,11 @@ package ua.busstation.core.user;
 
 import java.util.List;
 
+import ua.busstation.dao.impl.UserDaoImpl;
+
 public class UserManagerImpl implements UserManager {
+	
+	UserDao userDao = new UserDaoImpl();
 
 	@Override
 	public List<User> getAllUsers() {
@@ -12,8 +16,7 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public User findUserByLogin(String login) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.findUserByLogin(login);		
 	}
 
 	@Override

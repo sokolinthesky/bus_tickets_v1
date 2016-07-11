@@ -11,6 +11,6 @@ public class Path {
 
 	// commands
 	public static final String COMMAND_LIST_USERS = "/controller?command=listUsers";
-	public static final String COMMAND_LIST_ROUTES = "/controller?command=listRoutes";
+	public static final String COMMAND_LIST_ROUTES = "/controller?command=routes";
 
 }

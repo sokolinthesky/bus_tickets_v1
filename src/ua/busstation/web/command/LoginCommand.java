@@ -27,6 +27,8 @@ public class LoginCommand extends Command {
 	
 	private static final Logger log = Logger.getLogger(LoginCommand.class);
 	
+	private UserManager manager = new UserManagerImpl();
+	
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException {
@@ -36,9 +38,8 @@ public class LoginCommand extends Command {
 		HttpSession session = request.getSession();
 		
 		// obtain login and password from the request
-		UserManager manager = new UserManagerImpl();
 		String login = request.getParameter("login");
-		log.trace("Request parameter: loging --> " + login);
+		log.trace("Request parameter: login --> " + login);
 		
 		String password = request.getParameter("password");
 		
@@ -52,7 +53,6 @@ public class LoginCommand extends Command {
 			log.error("errorMessage --> " + errorMessage);
 			return forward;
 		}
-		
 		User user = manager.findUserByLogin(login);
 		log.trace("Found in DB: user --> " + user);
 			
