@@ -9,8 +9,10 @@
 
 </head>
 <body class="security-app">
+
 	<div class="details">
 		<h2>Online Bus Station</h2>
+		<a href="controller?command=logout"> Logout </a>
 	</div>
 
 	<div align="center">
