@@ -26,7 +26,7 @@ private static final Logger log = Logger.getLogger(CommandContainer.class);
 		commands.put("routes", new ListRoutesCommand());
 		commands.put("logout", new LogoutCommand());
 		commands.put("buses", new ListBusCommand());
-		//commands.put("noCommand", new NoCommand());
+		commands.put("noCommand", new NoCommand());
 		commands.put("reckoning", new ReckoningCommand());
 		// client commands
 		//commands.put("listMenu", new ListMenuCommand());

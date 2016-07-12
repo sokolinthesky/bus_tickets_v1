@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,20 +36,19 @@ public class ListBusCommand extends Command {
 			throws IOException, ServletException {
 		log.debug("Commands starts");
 		this.busStation = new BusStation();
-		
+
 		this.busStation.setSelectedRoute(this.manager.findByName(request.getParameter("routeName")));
 		log.debug("Get selected route - " + this.busStation.getSelectedRoute().getName());
-		
 		try {
 			java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
 			Date selectedDate = new Date(date.getTime());
-			
+
 			log.debug("Check date start...");
 			if (this.busStation.checkTime(selectedDate)) {
 				log.debug("Date is corrct");
 				this.busStation.setDateForAllBuses();
 				this.busStation.checkAndAddingRouteAndDateOrReturnExisting();
-				
+
 				request.setAttribute("buses", this.busStation.getSelectedRoute().getBuses());
 				request.setAttribute("date", this.busStation.getSelectedDate());
 
@@ -58,12 +56,16 @@ public class ListBusCommand extends Command {
 				return Path.PAGE_BUSES;
 
 			} else {
+				String errorMessage = "No correct date";
+				request.setAttribute("errorMessage", errorMessage);
 				log.debug("Command finish with error page, date not correct");
 				return Path.PAGE_ERROR_PAGE;
 			}
 		} catch (ParseException e) {
 			log.error("ParseException in ListBusCommand, date did not parse");
-			return null;
+			String errorMessage = "Field date is empty.";
+			request.setAttribute("errorMessage", errorMessage);
+			return Path.PAGE_ERROR_PAGE;
 		}
 	}
 
