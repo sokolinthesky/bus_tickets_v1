@@ -12,11 +12,14 @@
 
 	<div class="details">
 		<h2>Online Bus Station</h2>
+		<c:out value="${user.firstName} ${user.lastName}" />
+		<c:if test="${not empty userRole}">
+			<c:out value="(${userRole.name})" />
+		</c:if>
 		<a href="controller?command=logout"> Logout </a>
 	</div>
 
 	<div align="center">
-		<h1>Welcome!</h1>
 
 		<form action="controller" method="post">
 			<input type="hidden" name="command" value="buses" />

@@ -45,6 +45,7 @@ body.security-app:after {
 
 h2 {
     color: white;
+    font-family: "Open Sans", sans-serif;
 }
 
 h1{
@@ -52,7 +53,16 @@ h1{
 }
 
 h3 {
-    color: black;
+    color: red;
+    font-family: "Open Sans", sans-serif;
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+}
+
+div {
+	font-family: "Open Sans", sans-serif;
 }
 
 input[type="text"], input[type="password"]  {
