@@ -63,7 +63,7 @@
 		<filter-class>ua.busstation.web.filter.CommandAccessFilter</filter-class>
 		<init-param>
 			<param-name>admin</param-name>
-			<param-value>users</param-value>
+			<param-value>users viewEditUser editUser deleteUser</param-value>
 		</init-param>
 		<init-param >
 			<param-name>client</param-name>

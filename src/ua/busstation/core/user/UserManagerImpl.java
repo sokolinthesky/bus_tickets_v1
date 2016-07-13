@@ -10,8 +10,7 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.getAllUsers();
 	}
 
 	@Override
@@ -20,15 +19,13 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public void editUser() {
-		// TODO Auto-generated method stub
-		
+	public void editUser(User user) {
+		userDao.editUser(user);
 	}
 
 	@Override
-	public void deleteUser() {
-		// TODO Auto-generated method stub
-		
+	public void deleteUser(String id) {
+		userDao.deleteUser(id);
 	}
 
 }

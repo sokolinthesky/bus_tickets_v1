@@ -7,7 +7,7 @@ public interface UserManager {
 
 	User findUserByLogin(String login);
 
-	void editUser();
+	void editUser(User user);
 
-	void deleteUser();
+	void deleteUser(String id);
 }

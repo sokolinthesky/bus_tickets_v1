@@ -19,20 +19,21 @@ private static final Logger log = Logger.getLogger(CommandContainer.class);
 	private static Map<String, Command> commands = new TreeMap<String, Command>();
 	
 	static {
-		
-
-		commands.put("login", new LoginCommand());
 		// common commands
-		commands.put("routes", new ListRoutesCommand());
+		commands.put("login", new LoginCommand());
 		commands.put("logout", new LogoutCommand());
-		commands.put("buses", new ListBusCommand());
 		commands.put("noCommand", new NoCommand());
-		commands.put("reckoning", new ReckoningCommand());
+		
 		// client commands
-		//commands.put("listMenu", new ListMenuCommand());
+		commands.put("routes", new ListRoutesCommand());
+		commands.put("buses", new ListBusCommand());
+		commands.put("reckoning", new ReckoningCommand());
 		
 		// admin commands
-		//commands.put("listOrders", new ListOrdersCommand());
+		commands.put("users", new ListUsersCommand());
+		commands.put("viewEditUser", new ViewEditUserCommand());
+		commands.put("editUser", new EditUserCommand());
+		commands.put("deleteUser", new DeleteUserCommand());
 		
 		log.debug("Command container was successfully initialized");
 		log.trace("Number of commands --> " + commands.size());
