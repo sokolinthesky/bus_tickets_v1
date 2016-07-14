@@ -32,7 +32,8 @@ public class UserDaoImpl implements UserDao {
 				ResultSet rs = statement.executeQuery(Query.SELECT_ALL_USERS)) {
 			while (rs.next()) {
 				users.add(new User(rs.getLong("id"), rs.getString("login"), rs.getString("password"),
-						rs.getString("first_name"), rs.getString("last_name"), rs.getInt("role_id")));
+						rs.getString("first_name"), rs.getString("last_name"), rs.getInt("role_id"),
+						rs.getBoolean("is_active")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,7 +55,8 @@ public class UserDaoImpl implements UserDao {
 			ResultSet rs = ps.getResultSet();
 			if (rs.next()) {
 				user = new User(rs.getLong("id"), rs.getString("login"), rs.getString("password"),
-						rs.getString("first_name"), rs.getString("last_name"), rs.getInt("role_id"));
+						rs.getString("first_name"), rs.getString("last_name"), rs.getInt("role_id"),
+						rs.getBoolean("is_active"));
 			}
 			rs.close();
 		} catch (SQLException ex) {
@@ -96,13 +98,55 @@ public class UserDaoImpl implements UserDao {
 		}
 
 	}
-	
+
 	@Override
-	public String checkLoginAndEmail(User user) {
-		String result = "";
+	public void activateUser(User user) {
 		connection = JdbcConectionPoolConfig.getConnection();
-		
-		return null;
+		try (Statement statement = connection.createStatement()) {
+			statement.execute("UPDATE users_new SET is_active = 'true' WHERE id = " + user.getId() + ";");
+		} catch (SQLException ex) {
+			System.err.println(ex);
+		} finally {
+			closeConnection();
+		}
+
+	}
+
+	@Override
+	public boolean checkLogin(User user) {
+		boolean isFound = false;
+		connection = JdbcConectionPoolConfig.getConnection();
+		try (PreparedStatement psl = connection.prepareStatement(Query.USER_BY_LOGIN)) {
+			ResultSet rs = psl.executeQuery();
+			isFound = rs.next();
+			rs.close();
+		} catch (SQLException ex) {
+			System.err.println(ex);
+		} finally {
+			closeConnection();
+		}
+
+		return isFound;
+	}
+
+	@Override
+	public void createUser(User user) {
+		connection = JdbcConectionPoolConfig.getConnection();
+		try (PreparedStatement pStatement = connection.prepareStatement(Query.INSERT_USER)) {
+			pStatement.setString(1, user.getLogin());
+			pStatement.setString(2, user.getPassword());
+			pStatement.setString(3, user.getFirstName());
+			pStatement.setString(4, user.getLastName());
+			pStatement.setInt(5, user.getRoleId());
+			pStatement.setString(6, String.valueOf(user.isActive()));
+
+			pStatement.executeUpdate();
+		} catch (SQLException ex) {
+			System.err.println(ex);
+		} finally {
+			closeConnection();
+		}
+
 	}
 
 	/**
@@ -117,4 +161,5 @@ public class UserDaoImpl implements UserDao {
 			}
 		}
 	}
+
 }

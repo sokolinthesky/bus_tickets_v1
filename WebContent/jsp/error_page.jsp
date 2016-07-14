@@ -15,8 +15,8 @@
 		<c:out value="${user.firstName} ${user.lastName}" />
 		<c:if test="${not empty userRole}">
 			<c:out value="(${userRole.name})" />
+			<a href="controller?command=logout"> Logout </a>
 		</c:if>
-		<a href="controller?command=logout"> Logout </a>
 	</div>
 
 	<div align="center">

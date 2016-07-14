@@ -15,9 +15,9 @@
 			<input type="hidden" name="command" value="viewRegistration" /> <input
 				type="submit" value="registration" class="button green small">
 		</form>
-		<c:if test="${not empty successfulMessage}">
+		<p><c:if test="${not empty successfulMessage}">
 			<c:out value="${successfulMessage}"></c:out>
-		</c:if>
+		</c:if></p>
 	</div>
 	<div align="center">
 		<form action="controller" method="post">

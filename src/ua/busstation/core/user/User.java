@@ -18,25 +18,29 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private int roleId;
+	private boolean isActive;
 
 	public User() {
 	}
 
-	public User(Long id, String login, String password, String firstName, String lastName, int routeId) {
+	public User(Long id, String login, String password, String firstName, String lastName, int routeId,
+			boolean isActive) {
 		this.id = id;
 		this.login = login;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.roleId = routeId;
+		this.isActive = isActive;
 	}
-	
-	public User(String login, String password, String firstName, String lastName, int routeId) {
+
+	public User(String login, String password, String firstName, String lastName, int routeId, boolean isActive) {
 		this.login = login;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.roleId = routeId;
+		this.isActive = isActive;
 	}
 
 	public Long getId() {
@@ -85,6 +89,14 @@ public class User implements Serializable {
 
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	@Override

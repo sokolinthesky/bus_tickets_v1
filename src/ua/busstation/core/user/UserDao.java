@@ -12,6 +12,10 @@ public interface UserDao {
 
 	void deleteUser(String id);
 	
-	String checkLoginAndEmail(User user);
+	boolean checkLogin(User user);
+	
+	void activateUser(User user);
+	
+	void createUser(User user);
 
 }

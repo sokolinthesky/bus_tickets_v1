@@ -35,6 +35,10 @@
 					<input type="text" class="style-4" name="lastName"
 						placeholder="Last name" required/>
 				</div>
+				<div>
+					<input type="text" class="style-4" name="email"
+						placeholder="Email" required/>
+				</div>
 
 				<input type="hidden" class="style-4" name="roleId" value="1" />
 

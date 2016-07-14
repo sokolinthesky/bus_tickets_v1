@@ -25,6 +25,7 @@ private static final Logger log = Logger.getLogger(CommandContainer.class);
 		commands.put("noCommand", new NoCommand());
 		commands.put("registration", new RegistrationCommand());
 		commands.put("viewRegistration", new ViewRegistrationCommand());
+		commands.put("confirmRegistration", new ConfirmRegistrationCommand());
 		
 		// client commands
 		commands.put("routes", new ListRoutesCommand());

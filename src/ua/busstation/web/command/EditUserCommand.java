@@ -28,7 +28,8 @@ public class EditUserCommand extends Command {
 		try {
 			User editUser = new User(Long.parseLong(request.getParameter("id")), request.getParameter("login"),
 					request.getParameter("password"), request.getParameter("firstName"),
-					request.getParameter("lastName"), Integer.parseInt(request.getParameter("roleId")));
+					request.getParameter("lastName"), Integer.parseInt(request.getParameter("roleId")),
+					Boolean.parseBoolean(request.getParameter("isActive")));
 			log.debug("Generate editUser - " + editUser);
 
 			manager.editUser(editUser);

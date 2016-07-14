@@ -5,7 +5,7 @@ import java.util.List;
 import ua.busstation.dao.impl.UserDaoImpl;
 
 public class UserManagerImpl implements UserManager {
-	
+
 	UserDao userDao = new UserDaoImpl();
 
 	@Override
@@ -15,7 +15,7 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public User findUserByLogin(String login) {
-		return userDao.findUserByLogin(login);		
+		return userDao.findUserByLogin(login);
 	}
 
 	@Override
@@ -26,6 +26,23 @@ public class UserManagerImpl implements UserManager {
 	@Override
 	public void deleteUser(String id) {
 		userDao.deleteUser(id);
+	}
+
+	@Override
+	public boolean checkLogin(User user) {
+		return userDao.checkLogin(user);
+	}
+
+	@Override
+	public void activateUser(User user) {
+		userDao.activateUser(user);
+
+	}
+
+	@Override
+	public void createUser(User user) {
+		userDao.createUser(user);
+
 	}
 
 }

@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
 
-    <!-- maxActive: Maximum number of database connections in pool. Make sure you
-         configure your mysqld max_connections large enough to handle
-         all of your db connections. Set to -1 for no limit.
-         -->
+	<!-- maxActive: Maximum number of database connections in pool. Make sure 
+		you configure your mysqld max_connections large enough to handle all of your 
+		db connections. Set to -1 for no limit. -->
 
-    <!-- maxIdle: Maximum number of idle database connections to retain in pool.
-         Set to -1 for no limit.  See also the DBCP documentation on this
-         and the minEvictableIdleTimeMillis configuration parameter.
-         -->
+	<!-- maxIdle: Maximum number of idle database connections to retain in pool. 
+		Set to -1 for no limit. See also the DBCP documentation on this and the minEvictableIdleTimeMillis 
+		configuration parameter. -->
 
-    <!-- maxWait: Maximum time to wait for a database connection to become available
-         in ms, in this example 10 seconds. An Exception is thrown if
-         this timeout is exceeded.  Set to -1 to wait indefinitely.
-         -->
+	<!-- maxWait: Maximum time to wait for a database connection to become available 
+		in ms, in this example 10 seconds. An Exception is thrown if this timeout 
+		is exceeded. Set to -1 to wait indefinitely. -->
 
-    <!-- username and password: MySQL username and password for database connections  -->
+	<!-- username and password: MySQL username and password for database connections -->
 
-    <!-- driverClassName: Class name for the old mm.mysql JDBC driver is
-         org.gjt.mm.mysql.Driver - we recommend using Connector/J though.
-         Class name for the official MySQL Connector/J driver is com.mysql.jdbc.Driver.
-         -->
-    
-    <!-- url: The JDBC connection url for connecting to your MySQL database.
-         -->
+	<!-- driverClassName: Class name for the old mm.mysql JDBC driver is org.gjt.mm.mysql.Driver 
+		- we recommend using Connector/J though. Class name for the official MySQL 
+		Connector/J driver is com.mysql.jdbc.Driver. -->
 
-  <Resource name="jdbc/busstation" auth="Container" type="javax.sql.DataSource"
-               maxActive="500" maxIdle="10" maxWait="10000"
-               username="root" password="root" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://localhost:3306/busstation"
-               removeAbandoned="true"
-               removeAbandonedTimeout="60"
-               logAbandoned="true"/>
+	<!-- url: The JDBC connection url for connecting to your MySQL database. -->
+
+	<Resource name="jdbc/busstation" auth="Container" type="javax.sql.DataSource"
+		maxActive="500" maxIdle="10" maxWait="10000" username="root" password="root"
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/busstation"
+		removeAbandoned="true" removeAbandonedTimeout="60" logAbandoned="true" />
+
+	<!-- <Resource auth="Container" mail.smtp.host="localhost" name="mail/NomDeLaRessource" 
+		type="javax.mail.Session" /> -->
+
+	<!-- <Resource name="mail/MESMTPServer" auth="Container" type="javax.mail.Session" 
+		mail.smtp.host="SMTP_SERVER" mail.smtp.port="465" mail.smtp.auth="true" mail.smtp.user="SMTP_USER" 
+		password="MAIL_PASSWORD" mail.transport.protocol="smtps" mail.smtp.ssl.enable="true" 
+		mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory" /> -->
+
+	<Resource name="mail/Session" auth="Container" type="javax.mail.Session"
+		mail.transport.protocol="smtp" mail.smtp.host="smtp.gmail.com"
+		mail.smtp.starttls.enable="true" mail.smtp.port="587"
+		mail.smtp.user="soklakov.o.yu@gmail.com" mail.smtp.auth="true"
+		password="normalemail88" mail.smtp.ssl.trust="smtp.gmail.com" />
 </Context>

@@ -3,7 +3,6 @@ package ua.busstation.dao.config;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.annotation.Resource;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

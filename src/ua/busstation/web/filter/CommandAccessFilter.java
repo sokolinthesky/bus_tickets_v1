@@ -66,11 +66,17 @@ public class CommandAccessFilter implements Filter {
 		String commandName = request.getParameter("command");
 		if (commandName == null || commandName.isEmpty())
 			return false;
+		log.debug("first check");
 		if (outOfControl.contains(commandName))
 			return true;
+		log.debug("2 check");
+		if (commandName.equals("confirmRegistration")) {
+			return commons.contains(commandName);
+		}
 		HttpSession session = httpRequest.getSession(false);
 		if (session == null)
 			return false;
+		log.debug("3 check");
 		Role userRole = (Role) session.getAttribute("userRole");
 		if (userRole == null && !commandName.equals("viewRegistration") && !commandName.equals("registration"))
 			return false;

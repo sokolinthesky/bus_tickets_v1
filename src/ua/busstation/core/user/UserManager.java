@@ -10,4 +10,10 @@ public interface UserManager {
 	void editUser(User user);
 
 	void deleteUser(String id);
+
+	boolean checkLogin(User user);
+
+	void activateUser(User user);
+
+	void createUser(User user);
 }

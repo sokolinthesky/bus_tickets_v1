@@ -10,21 +10,38 @@ import org.apache.log4j.Logger;
 
 import ua.busstation.Path;
 import ua.busstation.core.user.User;
+import ua.busstation.core.user.UserManager;
+import ua.busstation.core.user.UserManagerImpl;
+import ua.busstation.utils.MailUtils;
 
 public class RegistrationCommand extends Command {
 	private static final long serialVersionUID = 2284680465102840705L;
-	
+
 	private static final Logger log = Logger.getLogger(RegistrationCommand.class);
+
+	UserManager manager = new UserManagerImpl();
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		log.debug("Command start");
-		User user = new User(request.getParameter("login"),
-				request.getParameter("password"), request.getParameter("firstName"),
-				request.getParameter("lastName"), Integer.parseInt(request.getParameter("roleId")));
-		log.debug("Generate user - " + user);
+		String userEmail = request.getParameter("email");
+		User user = new User(request.getParameter("login"), request.getParameter("password"),
+				request.getParameter("firstName"), request.getParameter("lastName"),
+				Integer.parseInt(request.getParameter("roleId")), false);
+		log.debug("Generated user - " + user);
+
+		if (manager.checkLogin(user)) {
+			String errorMessage = "Login is available in the database";
+			request.setAttribute("errorMessage", errorMessage);
+			log.error("errorMessage --> " + errorMessage);
+			return Path.PAGE_ERROR_PAGE;
+		}
 		
+		manager.createUser(user);
+		MailUtils.sendConfirmationEmail(user, userEmail);
+		request.setAttribute("successfulMessage",
+				"Your account was created. Check your email and confirm your registration.");
 		log.debug("Command finish");
 		return Path.PAGE_LOGIN;
 	}

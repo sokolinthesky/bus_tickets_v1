@@ -23,7 +23,8 @@ public class ViewEditUserCommand extends Command {
 
 		User editUser = new User(Long.parseLong(request.getParameter("id")), request.getParameter("login"),
 				request.getParameter("password"), request.getParameter("firstName"), request.getParameter("lastName"),
-				Integer.parseInt(request.getParameter("roleId")));
+				Integer.parseInt(request.getParameter("roleId")),
+				Boolean.parseBoolean(request.getParameter("isActive")));
 		log.debug("Generate editUser - " + editUser);
 
 		request.setAttribute("user", editUser);
