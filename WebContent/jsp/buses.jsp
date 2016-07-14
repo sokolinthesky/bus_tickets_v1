@@ -25,7 +25,7 @@
 				<h3>${date}</h3>
 				<br> Select bus:<br>
 				<c:forEach var="bus" items="${buses}">
-					<input type="radio" name="busNumber" value="${bus.trainNumber}">
+					<input type="radio" name="busNumber" value="${bus.trainNumber}" required>
 					<strong>${bus.trainNumber} [seats: ${bus.seats}/40]</strong>
 					<br>
 				</c:forEach>

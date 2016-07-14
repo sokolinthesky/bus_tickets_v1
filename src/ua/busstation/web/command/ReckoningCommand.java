@@ -31,13 +31,6 @@ public class ReckoningCommand extends Command {
 
 		this.busStation = new BusStation();
 		
-		if(request.getParameter("busNumber") == null) {
-			log.debug("Bus did't select\nCommand finish");
-			String errorMessage = "Bus did't select.";
-			request.setAttribute("errorMessage", errorMessage);
-			return Path.PAGE_ERROR_PAGE;
-		}
-		
 		// get selected bus
 		Bus bus = this.busStation.getSelectedRoute().getBusByNumber(request.getParameter("busNumber"));
 

@@ -11,6 +11,13 @@
 <body class="security-app">
 	<div class="details">
 		<h2>Online Bus Station</h2>
+		<form action="controller">
+			<input type="hidden" name="command" value="viewRegistration" /> <input
+				type="submit" value="registration" class="button green small">
+		</form>
+		<c:if test="${not empty successfulMessage}">
+			<c:out value="${successfulMessage}"></c:out>
+		</c:if>
 	</div>
 	<div align="center">
 		<form action="controller" method="post">
@@ -18,21 +25,15 @@
 			<div class="lc-block">
 				<div>
 					<input type="text" class="style-4" name="login"
-						placeholder="User Name" />
+						placeholder="User Name" required />
 				</div>
 				<div>
 					<input type="password" class="style-4" name="password"
-						placeholder="Password" />
+						placeholder="Password" required />
 				</div>
 				<div>
 					<input type="submit" value="submit" class="button red small" />
 				</div>
-				<c:if test="${param.error ne null}">
-					<div class="alert-danger">Invalid username and password.</div>
-				</c:if>
-				<c:if test="${param.logout ne null}">
-					<div class="alert-normal">You have been logged out.</div>
-				</c:if>
 			</div>
 		</form>
 	</div>

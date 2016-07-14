@@ -11,5 +11,7 @@ public interface UserDao {
 	void editUser(User user);
 
 	void deleteUser(String id);
+	
+	String checkLoginAndEmail(User user);
 
 }

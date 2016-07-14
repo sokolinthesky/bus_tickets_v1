@@ -96,6 +96,14 @@ public class UserDaoImpl implements UserDao {
 		}
 
 	}
+	
+	@Override
+	public String checkLoginAndEmail(User user) {
+		String result = "";
+		connection = JdbcConectionPoolConfig.getConnection();
+		
+		return null;
+	}
 
 	/**
 	 * Method closes connection.

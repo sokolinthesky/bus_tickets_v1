@@ -18,6 +18,7 @@ public class Query {
 	// users
 	public static final String SELECT_ALL_USERS = "SELECT * FROM users_new";
 	public static final String USER_BY_LOGIN = "SELECT * FROM users_new where login = (?)";
+	public static final String USER_BY_EMAIL = "SELECT * FROM users_new where email = (?)";
 	public static final String DELETE_USER = "DELETE FROM users_new WHERE id = ?";
 
 }

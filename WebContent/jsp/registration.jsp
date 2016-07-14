@@ -12,32 +12,34 @@
 
 	<div class="details">
 		<h2>Online Bus Station</h2>
-		<c:out value="${user.firstName} ${user.lastName}" />
-		<c:if test="${not empty userRole}">
-			<c:out value="(${userRole.name})" />
-		</c:if>
-		<a href="controller?command=logout"> Logout </a>
 	</div>
 
 	<div align="center">
 
 		<form action="controller" method="post">
-			<input type="hidden" name="command" value="buses" />
+			<input type="hidden" name="command" value="registration" />
 			<div class="lc-block">
 				<div>
-					Select date:<br> <input type="date" name="date" required>
-				</div>
-				<br>
-				<div>
-					Select route:<br> <select name="routeName">
-						<c:forEach var="route" items="${routes}">
-							<option value="${route.name}">${route.name}
-								[${route.departureTime} - ${route.destinationTime}]</option>
-						</c:forEach>
-					</select>
+					<input type="text" class="style-4" name="login"
+						placeholder="Login" required/>
 				</div>
 				<div>
-					<input type="submit" value="Submit" class="button green small">
+					<input type="password" class="style-4" name="password"
+						placeholder="Password" required/>
+				</div>
+				<div>
+					<input type="text" class="style-4" name="firstName"
+						placeholder="First name" required/>
+				</div>
+				<div>
+					<input type="text" class="style-4" name="lastName"
+						placeholder="Last name" required/>
+				</div>
+
+				<input type="hidden" class="style-4" name="roleId" value="1" />
+
+				<div>
+					<input type="submit" value="registration" class="button red small" />
 				</div>
 			</div>
 		</form>
