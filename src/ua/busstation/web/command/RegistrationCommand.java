@@ -37,11 +37,15 @@ public class RegistrationCommand extends Command {
 			log.error("errorMessage --> " + errorMessage);
 			return Path.PAGE_ERROR_PAGE;
 		}
-		
+
 		manager.createUser(user);
 		MailUtils.sendConfirmationEmail(user, userEmail);
-		request.setAttribute("successfulMessage",
-				"Your account was created. Check your email and confirm your registration.");
+		/*
+		 * request.setAttribute("successfulMessage",
+		 * "Your account was created. Check your email and confirm your registration."
+		 * );
+		 */
+		request.setAttribute("successfulMessage", "<fmt:message key=\"login.successful.message\" />");
 		log.debug("Command finish");
 		return Path.PAGE_LOGIN;
 	}
