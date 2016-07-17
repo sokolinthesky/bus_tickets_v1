@@ -19,11 +19,10 @@
 
 	<div class="details">
 		<h2>Online Bus Station</h2>
-		<form>
+		<form method="post">
 			<select id="language" name="language" onchange="submit()">
+				<option value="nl" ${language == 'uk' ? 'selected' : ''}>Ukrainian</option>
 				<option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
-				<option value="nl" ${language == 'nl' ? 'selected' : ''}>Nederlands</option>
-				<option value="es" ${language == 'es' ? 'selected' : ''}>Español</option>
 			</select>
 		</form>
 	</div>
@@ -34,31 +33,36 @@
 			<input type="hidden" name="command" value="registration" />
 			<div class="lc-block">
 				<div>
-					<fmt:message key="registration.test" />
-					<input type="text" class="style-4" name="login" placeholder="Login"
+					<fmt:message key="registration.placeholder.login" var="loginM" />
+					<input type="text" class="style-4" name="login" placeholder="${loginM}"
 						required />
 				</div>
 				<div>
+					<fmt:message key="registration.placeholder.password" var="password" />
 					<input type="password" class="style-4" name="password"
-						placeholder="Password" required />
+						placeholder="${password}" required />
 				</div>
 				<div>
+					<fmt:message key="registration.placeholder.firstname" var="firstName" />
 					<input type="text" class="style-4" name="firstName"
-						placeholder="First name" required />
+						placeholder="${firstName}" required />
 				</div>
 				<div>
+					<fmt:message key="registration.placeholder.secondname" var="secondname" />
 					<input type="text" class="style-4" name="lastName"
-						placeholder="Last name" required />
+						placeholder="${secondname}" required />
 				</div>
 				<div>
-					<input type="text" class="style-4" name="email" placeholder="Email"
+					<fmt:message key="registration.placeholder.email" var="email" />
+					<input type="text" class="style-4" name="email" placeholder="${email}"
 						required />
 				</div>
 
 				<input type="hidden" class="style-4" name="roleId" value="1" />
 
 				<div>
-					<input type="submit" value="registration" class="button red small" />
+					<fmt:message key="registration.button.submit" var="submit" />
+					<input type="submit" value="${submit}" class="button red small" />
 				</div>
 			</div>
 		</form>

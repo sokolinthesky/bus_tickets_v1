@@ -51,7 +51,6 @@ public class ListBusCommand extends Command {
 
 				request.setAttribute("buses", this.busStation.getSelectedRoute().getBuses());
 				request.setAttribute("date", this.busStation.getSelectedDate());
-
 				log.debug("Commands finished");
 				return Path.PAGE_BUSES;
 

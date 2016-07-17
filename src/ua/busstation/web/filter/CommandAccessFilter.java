@@ -64,6 +64,7 @@ public class CommandAccessFilter implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 
 		String commandName = request.getParameter("command");
+		log.debug("BEFORE FIST CHECK");
 		if (commandName == null || commandName.isEmpty())
 			return false;
 		log.debug("first check");

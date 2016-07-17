@@ -2,7 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="language"
+	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+	scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="ua.busstation.i18n.text" />
+<html lang="${language}">
 <head>
 <title>bus-station</title>
 <link rel="stylesheet" type="text/css" href="css/app.css">
@@ -21,7 +27,7 @@
 
 	<div align="center">
 		<div class="lc-block">
-			<h3>The following error occurred</h3>
+			<h3><fmt:message key="errorpage.title" /></h3>
 
 			<%-- this way we get the error information (error 404)--%>
 			<c:set var="code"
@@ -31,7 +37,7 @@
 
 			<c:if test="${not empty code}">
 				<h3>
-					Error code:
+					<fmt:message key="errorpage.errorcode" />:
 					<c:out value="${code}" />
 				</h3>
 			</c:if>

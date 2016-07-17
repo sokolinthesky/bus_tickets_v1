@@ -2,17 +2,19 @@ body.security-app {
     text-align: center;
     overflow: hidden;
     height: 100%;
+    overflow: scroll;
     width:100%;
     background:#edecec;
 }
 
 
 .lc-block {
+	
     padding: 35px 55px 35px;
     background: #fff;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
     border-radius: 2px;
-    width: 40%;
+    width: 50%;
     display: inline-block;
     position: relative;
     animation-name: fadeInUp;
@@ -144,4 +146,8 @@ font-size:18px;padding:1.2em 2.5em 1em
     color: #2196f3;
     
     
+}
+
+td th {
+	padding: 1px;
 }
