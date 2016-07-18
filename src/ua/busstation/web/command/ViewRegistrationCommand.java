@@ -10,6 +10,12 @@ import org.apache.log4j.Logger;
 
 import ua.busstation.Path;
 
+/**
+ * View registration command.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class ViewRegistrationCommand extends Command {
 
 	private static final long serialVersionUID = 4691798238858172086L;

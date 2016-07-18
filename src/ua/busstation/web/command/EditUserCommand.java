@@ -13,6 +13,12 @@ import ua.busstation.Path;
 import ua.busstation.core.user.UserManager;
 import ua.busstation.core.user.UserManagerImpl;
 
+/**
+ * Edit user command.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class EditUserCommand extends Command {
 
 	private static final long serialVersionUID = -965905184056281581L;

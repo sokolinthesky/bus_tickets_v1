@@ -11,6 +11,12 @@ import org.apache.log4j.Logger;
 import ua.busstation.Path;
 import ua.busstation.core.user.User;
 
+/**
+ * View edit user command.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class ViewEditUserCommand extends Command {
 	private static final long serialVersionUID = 4959175641105767309L;
 

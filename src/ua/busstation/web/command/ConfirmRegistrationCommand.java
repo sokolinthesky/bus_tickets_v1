@@ -15,11 +15,17 @@ import ua.busstation.core.user.User;
 import ua.busstation.core.user.UserManager;
 import ua.busstation.core.user.UserManagerImpl;
 
+/**
+ * Confirm registration command.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class ConfirmRegistrationCommand extends Command {
 	private static final long serialVersionUID = -3071536593627692473L;
 
 	private static final Logger LOG = Logger.getLogger(ConfirmRegistrationCommand.class);
-	
+
 	UserManager manager = new UserManagerImpl();
 
 	@Override
@@ -31,7 +37,7 @@ public class ConfirmRegistrationCommand extends Command {
 		String decodedLogin = new String(Base64.getDecoder().decode(encryptedLogin), StandardCharsets.UTF_8);
 
 		LOG.trace("Decode 'ID' to following email: " + decodedLogin);
-		
+
 		User user = manager.findUserByLogin(decodedLogin);
 
 		if (user.getLogin().equals(decodedLogin)) {

@@ -23,10 +23,16 @@ import org.apache.log4j.Logger;
 
 import ua.busstation.core.user.User;
 
+/**
+ * Mail util class designed to send email for confirm registration.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class MailUtils {
 	private static final Logger LOG = Logger.getLogger(MailUtils.class);
 	private static final Session SESSION = init();
-	//private static final String confirmSubjectRu = "Подтвердите регистрацию";
+	// private static final String confirmSubjectRu = "Подтвердите регистрацию";
 	private static final String confirmSubjectEng = "Confirm Registration";
 	private final static String confirmationURL = "http://localhost:8080/busstation/controller?command=confirmRegistration&ID=";
 
@@ -41,6 +47,14 @@ public class MailUtils {
 		return session;
 	}
 
+	/**
+	 * Send confirmation email to user.
+	 * 
+	 * @param user
+	 *            recipient.
+	 * @param email
+	 *            email address.
+	 */
 	public static void sendConfirmationEmail(User user, String email) {
 		try {
 			Message msg = new MimeMessage(SESSION);
@@ -59,14 +73,24 @@ public class MailUtils {
 
 			Transport.send(msg);
 		} catch (AddressException e) {
-			//LOG.error(e);
+			// LOG.error(e);
 		} catch (MessagingException e) {
-			//LOG.error(e);
+			// LOG.error(e);
 		} catch (UnsupportedEncodingException e) {
-			//LOG.error(e);
+			// LOG.error(e);
 		}
 	}
-	
+
+	/**
+	 * Set content to confirmation email.
+	 * 
+	 * @param msg
+	 *            massage.
+	 * @param user
+	 *            recipient.
+	 * @throws MessagingException
+	 * @throws UnsupportedEncodingException
+	 */
 	private static void setContentToConfirmationEmailEng(Message msg, User user)
 			throws MessagingException, UnsupportedEncodingException {
 		msg.setSubject(confirmSubjectEng);

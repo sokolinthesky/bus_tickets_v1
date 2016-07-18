@@ -14,7 +14,7 @@ import ua.busstation.Path;
 /**
  * Logout command.
  * 
- * @author D.Kolesnikov
+ * @author O.Soklakov
  * 
  */
 public class LogoutCommand extends Command {
@@ -24,10 +24,10 @@ public class LogoutCommand extends Command {
 	private static final Logger log = Logger.getLogger(LogoutCommand.class);
 
 	@Override
-	public String execute(HttpServletRequest request,
-			HttpServletResponse response) throws IOException, ServletException {
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
 		log.debug("Command starts");
-		
+
 		HttpSession session = request.getSession(false);
 		if (session != null)
 			session.invalidate();

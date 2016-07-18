@@ -5,6 +5,12 @@ import ua.busstation.core.bus.Bus;
 import java.sql.Time;
 import java.util.List;
 
+/**
+ * Route entity.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class Route {
 
 	private String id;
@@ -77,31 +83,31 @@ public class Route {
 	@Override
 	public String toString() {
 
-		return "Route{" +
-				"id='" + id + '\'' +
-				", name='" + name + '\'' +
-				", departureTime=" + departureTime +
-				", destinationTime=" + destinationTime +
-				", price=" + price +
-				", buses=" + buses +
-				'}';
+		return "Route{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", departureTime=" + departureTime
+				+ ", destinationTime=" + destinationTime + ", price=" + price + ", buses=" + buses + '}';
 	}
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Route)) return false;
+		if (this == o)
+			return true;
+		if (!(o instanceof Route))
+			return false;
 
 		Route route = (Route) o;
 
-		if (Double.compare(route.price, price) != 0) return false;
-		if (buses != null ? !buses.equals(route.buses) : route.buses != null) return false;
+		if (Double.compare(route.price, price) != 0)
+			return false;
+		if (buses != null ? !buses.equals(route.buses) : route.buses != null)
+			return false;
 		if (departureTime != null ? !departureTime.equals(route.departureTime) : route.departureTime != null)
 			return false;
 		if (destinationTime != null ? !destinationTime.equals(route.destinationTime) : route.destinationTime != null)
 			return false;
-		if (id != null ? !id.equals(route.id) : route.id != null) return false;
-		if (name != null ? !name.equals(route.name) : route.name != null) return false;
+		if (id != null ? !id.equals(route.id) : route.id != null)
+			return false;
+		if (name != null ? !name.equals(route.name) : route.name != null)
+			return false;
 
 		return true;
 	}
@@ -124,12 +130,12 @@ public class Route {
 		Bus busByName = null;
 
 		for (Bus bus : buses) {
-			if (bus.getTrainNumber().equals(number)){
+			if (bus.getTrainNumber().equals(number)) {
 				busByName = bus;
 				break;
 			}
 		}
-		//TODO: replace this to reconing servlet
+		// TODO: replace this to reconing servlet
 		if (busByName != null) {
 			busByName.takeSeat();
 		}

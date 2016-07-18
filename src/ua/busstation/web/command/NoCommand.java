@@ -13,7 +13,7 @@ import ua.busstation.Path;
 /**
  * No command.
  * 
- * @author D.Kolesnikov
+ * @author O.Soklakov
  * 
  */
 public class NoCommand extends Command {
@@ -23,10 +23,10 @@ public class NoCommand extends Command {
 	private static final Logger log = Logger.getLogger(NoCommand.class);
 
 	@Override
-	public String execute(HttpServletRequest request,
-			HttpServletResponse response) throws IOException, ServletException {
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
 		log.debug("Command starts");
-		
+
 		String errorMessage = "No such command";
 		request.setAttribute("errorMessage", errorMessage);
 		log.error("Set the request attribute: errorMessage --> " + errorMessage);

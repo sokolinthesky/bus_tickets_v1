@@ -4,6 +4,12 @@ import java.util.List;
 
 import ua.busstation.dao.impl.UserDaoImpl;
 
+/**
+ * User manager implementation.
+ * 
+ * @author O.Sokalkov
+ *
+ */
 public class UserManagerImpl implements UserManager {
 
 	UserDao userDao = new UserDaoImpl();

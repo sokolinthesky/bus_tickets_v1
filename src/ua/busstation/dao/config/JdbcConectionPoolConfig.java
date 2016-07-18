@@ -8,9 +8,20 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+/**
+ * Jdbc connection pool config class.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class JdbcConectionPoolConfig {
 	private static DataSource dataSource;
 
+	/**
+	 * Get free connection from pool.
+	 * 
+	 * @return connection.
+	 */
 	public static synchronized Connection getConnection() {
 		if (dataSource == null) {
 			try {

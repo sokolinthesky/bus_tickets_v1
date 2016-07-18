@@ -14,6 +14,12 @@ import ua.busstation.core.user.User;
 import ua.busstation.core.user.UserManager;
 import ua.busstation.core.user.UserManagerImpl;
 
+/**
+ * List users command.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class ListUsersCommand extends Command {
 	private static final long serialVersionUID = 1741242632796656521L;
 

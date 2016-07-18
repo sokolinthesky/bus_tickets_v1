@@ -4,7 +4,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import ua.busstation.web.listener.ContextListener;
@@ -17,7 +17,7 @@ import ua.busstation.web.listener.ContextListener;
  */
 public class ContextListener implements ServletContextListener {
 
-	private static final Logger log = Logger.getLogger(ContextListener.class);
+	//private static final Logger log = Logger.getLogger(ContextListener.class);
 
 	public void contextDestroyed(ServletContextEvent event) {
 		log("Servlet context destruction starts");

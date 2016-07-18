@@ -14,6 +14,12 @@ import ua.busstation.core.user.UserManager;
 import ua.busstation.core.user.UserManagerImpl;
 import ua.busstation.utils.MailUtils;
 
+/**
+ * Registration command.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class RegistrationCommand extends Command {
 	private static final long serialVersionUID = 2284680465102840705L;
 

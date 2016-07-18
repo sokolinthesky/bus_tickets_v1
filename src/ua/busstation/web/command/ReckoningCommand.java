@@ -14,7 +14,7 @@ import ua.busstation.core.bus.Bus;
 import ua.busstation.core.reckoning.Reckoning;
 
 /**
- * Reckoning comand.
+ * Reckoning command.
  * 
  * @author O.Soklakov
  *

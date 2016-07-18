@@ -4,6 +4,12 @@ import java.util.List;
 
 import ua.busstation.dao.impl.RouteDaoImpl;
 
+/**
+ * Implementation route manager.
+ * 
+ * @author O.Soklakov
+ *
+ */
 public class RouteManagerImpl implements RouteManager {
 	private RouteDao routeDao = new RouteDaoImpl();
 
@@ -16,5 +22,5 @@ public class RouteManagerImpl implements RouteManager {
 	public Route findByName(String name) {
 		return this.routeDao.findByName(name);
 	}
-	
+
 }
