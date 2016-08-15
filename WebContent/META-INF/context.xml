@@ -37,6 +37,6 @@
 	<Resource name="mail/Session" auth="Container" type="javax.mail.Session"
 		mail.transport.protocol="smtp" mail.smtp.host="smtp.gmail.com"
 		mail.smtp.starttls.enable="true" mail.smtp.port="587"
-		mail.smtp.user="soklakov.o.yu@gmail.com" mail.smtp.auth="true"
-		password="normalemail88" mail.smtp.ssl.trust="smtp.gmail.com" />
+		mail.smtp.user="" mail.smtp.auth="true"
+		password="" mail.smtp.ssl.trust="smtp.gmail.com" />
 </Context>
